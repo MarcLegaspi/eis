@@ -1,0 +1,8 @@
+Core/bin
+Core/obj
+Api/bin
+Api/obj
+Infrastructure/bin
+Infrastructure/obj
+Infrastructure/Data/SeedData/employees.xlsx
+Features.xlsx

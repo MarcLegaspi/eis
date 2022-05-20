@@ -1,0 +1,37 @@
+[
+  {
+    "Code": "Acc1",
+    "Name": "Accountant 1",
+    "DepartmentId": 2
+  },
+  {
+    "Code": "Acc2",
+    "Name": "Accountant 2",
+    "DepartmentId": 2
+  },
+  {
+    "Code": "NetAd",
+    "Name": "Network Administrator",
+    "DepartmentId": 4
+  },
+  {
+    "Code": "IT1",
+    "Name": "IT Officer",
+    "DepartmentId": 1
+  },
+  {
+    "Code": "IT2",
+    "Name": "IT Personnel",
+    "DepartmentId": 1
+  },
+  {
+    "Code": "HR1",
+    "Name": "Human Resource Head",
+    "DepartmentId": 3
+  },
+  {
+    "Code": "HR2",
+    "Name": "Human Resource Specialist",
+    "DepartmentId": 3
+  }
+]

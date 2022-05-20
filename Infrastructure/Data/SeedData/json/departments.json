@@ -1,0 +1,18 @@
+[
+  {
+    "Code": "IT",
+    "Name": "Information Technology"
+  },
+  {
+    "Code": "Acc",
+    "Name": "Accounting"
+  },
+  {
+    "Code": "HR",
+    "Name": "Human Resource"
+  },
+  {
+    "Code": "NET",
+    "Name": "Networking"
+  }
+]
