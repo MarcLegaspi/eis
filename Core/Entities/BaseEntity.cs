@@ -2,8 +2,11 @@ namespace Core.Entities
 {
     public class BaseEntity
     {
-        public int Id { get; set; }
-        public DateTime CreatedDate { get; set; }
-        public DateTime UpdatedDate { get; set; }
+        private DateTime _defaultDate = DateTime.Now;
+        public int Id { get; set; }        
+        public int CreatedByUserId { get; set; }       
+        public DateTime CreatedDate { get { return _defaultDate; } set { _defaultDate = value == null ? DateTime.Now : value; } }
+        public int? UpdatedByUserId { get; set; }       
+        public DateTime? UpdatedDate { get; set; }
     }
 }

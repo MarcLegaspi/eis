@@ -1,0 +1,16 @@
+[
+  {
+    "EmployeeId": 4,
+    "Address1": "256e Dr Sixto Antonio Ave St.",
+    "Barangay": "Caniogan",
+    "Municipality": "Pasig",
+    "Province": "Metro Manila"
+  },
+  {
+    "EmployeeId": 7,
+    "Address1": "1236 Kawilihan St.",
+    "Barangay": "Maybunga",
+    "Municipality": "Pasig",
+    "Province": "Metro Manila"
+  }
+]

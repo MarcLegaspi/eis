@@ -1,0 +1,17 @@
+Id,EmployeeNumber,LastName,FirstName,MiddleName,SuffixName,BirthDate,PhilhealthNo,SSS,Pagibig,TIN,Gsis,PictureUrl,Email,PositionId,DateHired,EmployeeStatus
+1,00001,Jackson,Raven,Cross,,1985-02-14T00:00:00,005248524876,,0002344544,,0000234423,,ravenjackson@yahoo.com,1,2022-02-14T00:00:00,1
+2,00002,McCarthy,Kirsten,Wheeler,,1985-02-15T00:00:00,045245575588,,0053434534,,0004442444,,kirstenmccarthy@yahoo.com,5,,
+3,00003,Williams,Shawn,Lozano,,1985-02-16T00:00:00,054687200028,,0055533546,,0003455453,,shawnwilliams@yahoo.com,4,,
+4,00004,Legaspi,Marc Erickson,Pumar,,1986-02-14T00:00:00,057852220000,,0066555343,,0006634245,,marc ericksonlegaspi@yahoo.com,4,2021-02-12T00:00:00,1
+5,00005,Topacio,Gaven,Kidd,,1986-02-18T00:00:00,045557524525,,0043666443,,0007678995,,gaventopacio@yahoo.com,4,2022-01-05T00:00:00,0
+6,00006,Pumar,Terrell,Barr,Jr,1986-02-19T00:00:00,045007525555,,0067775345,,0003545745,,terrellpumar@yahoo.com,1,,
+7,00007,Ocampo,Macey,Larsen,,1987-02-20T00:00:00,005485752281,,0078007646,,0003459956,,maceyocampo@yahoo.com,2,,
+8,00008,Santos,Paxton,Drake,,1987-02-21T00:00:00,000455875875,,0045679075,,0003546896,,paxtonsantos@yahoo.com,1,2016-06-12T00:00:00,1
+9,00009,Turner,Jaydan,Atkinson,III,1987-02-22T00:00:00,011057658758,,0066457764,,0004575454,,jaydanturner@yahoo.com,4,,
+10,00010,Byrd,Elian,Bell,,1988-02-23T00:00:00,044420000004,,0099564568,,0003467363,,elianbyrd@yahoo.com,6,,
+11,00011,Frost,Jayson,Guerrero,,1988-02-24T00:00:00,055588570000,,0080000785,,0009009567,,jaysonfrost@yahoo.com,7,,
+12,00012,Howe,Jaxson,Wilkinson,,1988-02-25T00:00:00,024245457755,,0045688899,,0004369000,,jaxsonhowe@yahoo.com,7,2020-11-01T00:00:00,1
+13,00013,Mooney,Ross,Dixon,,1989-02-26T00:00:00,002523223377,,0075689760,,0005654645,,rossmooney@yahoo.com,3,,
+14,00014,Hartman,Talon,Haynes,,1989-02-27T00:00:00,052021044717,,0067656789,,0004563677,,talonhartman@yahoo.com,3,2010-04-15T00:00:00,2
+15,00015,Coleman,Donavan,Massey,,1989-02-28T00:00:00,025875228755,,0054647754,,0004567554,,donavancoleman@yahoo.com,2,2012-12-12T00:00:00,1
+16,00016,Fuller,Khalil,Burgess,Sr,1990-02-14T00:00:00,065578728576,,0054678778,,0007890000,,khalilfuller@yahoo.com,1,2019-03-01T00:00:00,1

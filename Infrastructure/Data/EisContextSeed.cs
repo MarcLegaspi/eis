@@ -9,7 +9,7 @@ namespace Infrastructure.Data
         public static async Task SeedAsync(EisContext context, ILoggerFactory loggerFactory)
         {
             try
-            {                
+            {
                 if (!context.Departments.Any())
                 {
                     var departmentsData = File.ReadAllText("../Infrastructure/Data/SeedData/json/departments.json");
@@ -47,14 +47,26 @@ namespace Infrastructure.Data
                 }
 
 
-                if (!context.LeaveRequestTypes.Any())
-                {
-                    var leaveRequestTypesData = File.ReadAllText("../Infrastructure/Data/SeedData/json/leaveRequestTypes.json");
-                    var leaveRequestTypes = JsonSerializer.Deserialize<List<LeaveRequestType>>(leaveRequestTypesData);
+                // if (!context.LeaveRequestTypes.Any())
+                // {
+                //     var leaveRequestTypesData = File.ReadAllText("../Infrastructure/Data/SeedData/json/leaveRequestTypes.json");
+                //     var leaveRequestTypes = JsonSerializer.Deserialize<List<LeaveRequestType>>(leaveRequestTypesData);
 
-                    foreach (var item in leaveRequestTypes)
+                //     foreach (var item in leaveRequestTypes)
+                //     {
+                //         context.LeaveRequestTypes.Add(item);
+                //     }
+                //     await context.SaveChangesAsync();
+                // }
+
+                if (!context.EmployeeAddress.Any())
+                {
+                    var employeeAddressData = File.ReadAllText("../Infrastructure/Data/SeedData/json/employeeAddress.json");
+                    var  employeeAddress = JsonSerializer.Deserialize<List<EmployeeAddress>>(employeeAddressData);
+
+                    foreach (var item in employeeAddress)
                     {
-                        context.LeaveRequestTypes.Add(item);
+                        context.EmployeeAddress.Add(item);
                     }
                     await context.SaveChangesAsync();
                 }
