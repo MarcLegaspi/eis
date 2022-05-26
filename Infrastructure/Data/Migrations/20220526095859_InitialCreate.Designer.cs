@@ -12,7 +12,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Infrastructure.Data.Migrations
 {
     [DbContext(typeof(EisContext))]
-    [Migration("20220524181506_InitialCreate")]
+    [Migration("20220526095859_InitialCreate")]
     partial class InitialCreate
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -92,10 +92,16 @@ namespace Infrastructure.Data.Migrations
                     b.Property<DateTime>("BirthDate")
                         .HasColumnType("datetime");
 
+                    b.Property<string>("CellphoneNumber")
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<int>("CreatedByUserId")
                         .HasColumnType("int");
 
                     b.Property<DateTime>("CreatedDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<DateTime?>("DateHired")
                         .HasColumnType("datetime2");
 
                     b.Property<string>("Email")
@@ -105,6 +111,9 @@ namespace Infrastructure.Data.Migrations
                         .IsRequired()
                         .HasMaxLength(10)
                         .HasColumnType("nvarchar(10)");
+
+                    b.Property<int>("EmployeeStatus")
+                        .HasColumnType("int");
 
                     b.Property<string>("FirstName")
                         .IsRequired()
@@ -124,9 +133,6 @@ namespace Infrastructure.Data.Migrations
                         .HasMaxLength(30)
                         .HasColumnType("nvarchar(30)");
 
-                    b.Property<string>("Password")
-                        .HasColumnType("nvarchar(max)");
-
                     b.Property<string>("PhilhealthNo")
                         .HasMaxLength(12)
                         .HasColumnType("nvarchar(12)");
@@ -143,6 +149,9 @@ namespace Infrastructure.Data.Migrations
                     b.Property<string>("TIN")
                         .HasMaxLength(10)
                         .HasColumnType("nvarchar(10)");
+
+                    b.Property<string>("TelephoneNumber")
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<int?>("UpdatedByUserId")
                         .HasColumnType("int");

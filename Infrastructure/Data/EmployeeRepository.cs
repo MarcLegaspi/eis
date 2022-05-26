@@ -13,18 +13,12 @@ namespace Infrastructure.Data
         }
         public async Task<IReadOnlyList<Employee>> GetEmployees(Pagination pagination)
         {
-            return await base.ListAll(pagination)
-                .Include(m => m.Position)
-                .Include(m => m.EmployeeAddress)
-                .ToListAsync();
+            return await base.ListAllIncludingAsync(pagination,  p => p.Position, r => r.EmployeeAddress);
         }
 
         public async Task<Employee> GetEmployeeById(int id)
         {
-            return await base.ListAll()
-                .Include(m => m.Position)
-                .Include(m => m.EmployeeAddress)
-                .FirstOrDefaultAsync(m => m.Id == id);
+            return await base.GetByIdIncludingAsync(id, p=> p.Position, e=> e.EmployeeAddress);
         }
     }
 }

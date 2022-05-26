@@ -14,18 +14,12 @@ namespace Infrastructure.Data
 
         public async Task<IReadOnlyList<LeaveRequest>> GetLeaveRequests(Pagination pagination = null)
         {
-            return await base.ListAll(pagination)
-                .Include(m => m.Employee)
-            //    .Include(m => m.EmployeeAddress)
-                .ToListAsync();
+            return await base.ListAllIncludingAsync(pagination, e=> e.Employee);
         }
 
         public async Task<LeaveRequest> GetLeaveRequestById(int id)
         {
-            return await base.ListAll()
-                .Include(m => m.Employee)
-                //.Include(m => m.EmployeeAddress)
-                .FirstOrDefaultAsync(m => m.Id == id);
+            return await base.GetByIdIncludingAsync(id, e => e.Employee);
         }
     }
 }
