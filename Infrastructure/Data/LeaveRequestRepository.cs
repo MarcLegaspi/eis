@@ -12,9 +12,9 @@ namespace Infrastructure.Data
             
         }
 
-        public async Task<IReadOnlyList<LeaveRequest>> GetLeaveRequests(Pagination pagination = null)
+        public async Task<IReadOnlyList<LeaveRequest>> GetLeaveRequests(Pagination pagination)
         {
-            return await base.ListAllIncludingAsync(pagination, e=> e.Employee);
+            return await base.ListAllIncludingAsync(pagination,null, e=> e.Employee);
         }
 
         public async Task<LeaveRequest> GetLeaveRequestById(int id)

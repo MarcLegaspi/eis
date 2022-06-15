@@ -1,0 +1,66 @@
+<div class="d-flex justify-content-between pb-3">
+    <h3>Employees</h3>
+    <div>
+        <a [routerLink]="['create']" routerLinkActive="router-link-active" class="btn btn-primary">+ Create New</a>
+        <!-- <button class="btn btn-primary">+ Create New</button> -->
+    </div>
+</div>
+<div class="px-3 py-3 d-lg-flex justify-content-between search-box align-items-center">
+    <input type="text" [(ngModel)]="search" class=" form-control filter-input"
+        placeholder="&#xF52A;  Search Emp #, Name">
+    <select class="form-select filter-input mt-lg-0 mt-2 ml-lg-2 ml-sm-0" (change)="onFilterDepartment()"
+        [(ngModel)]="departmentId">
+        <option [value]="department.id" *ngFor="let department of departments">
+            {{ department.name }}
+        </option>
+    </select>
+    <div class="filter-input mt-lg-0 mt-2 ml-lg-2 ml-sm-0">
+        <button class="btn btn-outline-secondary" (click)="onSearch()">Search</button>
+        <button class="btn btn-outline-secondary ms-2">Export</button>
+        <button class="btn btn-outline-secondary ms-2" (click)="onReset()">Reset</button>
+    </div>
+</div>
+<div class="p-3">
+    <div class="table-responsive">
+        <table class="table table-md">
+            <thead>
+                <tr>
+                    <th>#</th>
+                    <th>First Name</th>
+                    <th>MiddleName</th>
+                    <th>Last Name</th>
+                    <th>Position</th>
+                    <th>Department</th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let employee of employees">
+                    <td>{{ employee.employeeNumber }}</td>
+                    <td>{{ employee.firstName }}</td>
+                    <td>{{ employee.middleName }}</td>
+                    <td>{{ employee.lastName }}</td>
+                    <td>{{ employee.position }}</td>
+                    <td>{{ employee.department }}</td>
+                    <td>
+                        <div class="btn-toolbar justify-content-end" role="toolbar" aria-label="Toolbar with button groups">
+                            <div class="btn-group btn-group-sm" role="group" aria-label="First group">
+                                <a class="btn btn-secondary" routerLinkActive="router-link-active" >
+                                    View
+                                </a>
+                                <a class="btn btn-primary" [routerLink]="[employee.id,'update']">
+                                    Edit
+                                </a>
+                            </div>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <div class="p-3 d-flex justify-content-center" *ngIf="listCount">
+        <app-pagination [pageIndex]="pageIndex" [pageSize]="pageSize" [totalCount]="listCount"
+            (pageChanged)="onPageChanged($event)"></app-pagination>
+        <!-- <ngb-pagination [collectionSize]="70" [(page)]="pageIndex" [boundaryLinks]="true"></ngb-pagination> -->
+    </div>
+</div>

@@ -22,6 +22,7 @@ namespace API.Dtos
         public string CellphoneNumber { get; set; }
         public string PictureUrl { get; set; }
         public string Position { get; set; }
+        public string Department { get; set; }
         public string Email { get; set; }
         public string Password { get; set; }
         public EmployeeAddress EmployeeAddress { get;set; }

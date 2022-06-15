@@ -1,0 +1,28 @@
+.pagination {
+    margin: 0 !important;
+}
+
+.page-item.active .page-link {
+    background-color: #ff9d2b !important;
+    border-color: #ff9d2b !important;
+}
+
+@media (min-width:320px) {
+    .filter-input {
+        width: 100%;
+        /* display: block; */
+        /* margin-left: 0px; */
+    }
+}
+
+@media (min-width:1024px) {
+    .filter-input {
+        width: 33%;
+        /* display: inline-block; */
+        /* margin-left: 8px; */
+    }
+}
+
+tr:hover {
+    background-color: #f5f5f5;
+}

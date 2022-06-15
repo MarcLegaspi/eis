@@ -1,0 +1,187 @@
+<div class="d-flex justify-content-between pb-3">
+    <h3>Employees (Update)</h3>
+</div>
+<form [formGroup]="employeeForm" (ngSubmit)="onSubmit()">
+    <div class="row g-0 p-3 mb-5 search-box">
+        <div class="col-7 ">
+            <label for="lastName" class="m-0 fw-bold">Employee No</label>
+            <h1 class="m-0"><input type="text" formControlName="employeeNumber" id="employeeNumber" value="IT-0000">
+            </h1>
+        </div>
+        <div class="col-5 ">
+            <div class="mb-2 row">
+                <label for="dateHired" class="col-sm-4 col-form-label">Date Hired *:</label>
+                <div class="col-sm-8">
+                    <input type="date" formControlName="dateHired" class="form-control required" id="dateHired">
+                    <span class="text-danger small"
+                        *ngIf="!employeeForm.get('dateHired')?.valid && employeeForm.get('dateHired')?.touched">
+                        Date Hired is required
+                    </span>
+                </div>
+            </div>
+            <div class="row">
+                <label for="positionId" class="col-sm-4 col-form-label">Position *:</label>
+                <div class="col-sm-8">
+                    <select class="form-select required" formControlName="positionId">
+                        <option [value]=""></option>
+                        <option [value]="position.id" *ngFor="let position of positions">{{ position.departmentCode }} -
+                            {{ position.name }}</option>
+                    </select>
+                    <span class="text-danger small"
+                        *ngIf="!employeeForm.get('positionId')?.valid && employeeForm.get('positionId')?.touched">
+                        Position is required
+                    </span>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="p-3 mb-4 form-section">
+        <span>Personal Information</span>
+        <div class="form-row">
+            <div class="form-group col-3">
+                <label for="lastName">Last *</label>
+                <input type="text" formControlName="lastName" class="form-control required" id="lastName">
+                <span class="text-danger small"
+                    *ngIf="!employeeForm.get('lastName')?.valid && employeeForm.get('lastName')?.touched">
+                    Last Name is required
+                </span>
+            </div>
+            <div class="form-group col-4">
+                <label for="firstName">First *</label>
+                <input type="text" formControlName="firstName" class="form-control required" id="firstName">
+                <span class="text-danger small"
+                    *ngIf="!employeeForm.get('firstName')?.valid && employeeForm.get('firstName')?.touched">
+                    First Name is required
+                </span>
+            </div>
+            <div class="form-group col-3">
+                <label for="middleName">Middle</label>
+                <input type="text small" formControlName="middleName" class="form-control" id="middleName">
+            </div>
+            <div class="form-group col-2">
+                <label for="suffixName">Suffix</label>
+                <input type="text" formControlName="suffixName" class="form-control" id="suffixName">
+            </div>
+            <div class="form-group col-3">
+                <label for="birthDate">Birthday *</label>
+                <input type="date" formControlName="birthDate" class="form-control required" id="birthDate">
+                <span class="text-danger small"
+                    *ngIf="!employeeForm.get('birthDate')?.valid && employeeForm.get('birthDate')?.touched">
+                    Birthday is required
+                </span>
+            </div>
+
+        </div>
+    </div>
+    <div class="p-3 mb-4 form-section">
+        <span>Goverment IDs</span>
+        <div class="form-row">
+            <div class="form-group col-3">
+                <label for="philhealthNo">Philhealth</label>
+                <input type="text" formControlName="philhealthNo" class="form-control" id="philhealthNo">
+            </div>
+            <div class="form-group col-4">
+                <label for="sss">SSS</label>
+                <input type="text" formControlName="sss" class="form-control" id="sss">
+            </div>
+            <div class="form-group col-3">
+                <label for="tin">TIN</label>
+                <input type="text" formControlName="tin" class="form-control" id="tin">
+            </div>
+            <div class="form-group col-2">
+                <label for="pagibig">Pagibig</label>
+                <input type="text" formControlName="pagibig" class="form-control" id="pagibig">
+            </div>
+        </div>
+    </div>
+    <div class="p-3 mb-4 form-section">
+        <span>Contact</span>
+        <div class="form-row">
+            <div class="form-group col-3">
+                <label for="telephoneNumber">Telephone No.</label>
+                <input type="text" formControlName="telephoneNumber" class="form-control" id="telephoneNumber">
+            </div>
+            <div class="form-group col-3">
+                <label for="cellphoneNumber">Cellphone No.</label>
+                <input type="text" formControlName="cellphoneNumber" class="form-control" id="cellphoneNumber">
+            </div>
+            <div class="form-group col-3">
+                <label for="email">Personal Email</label>
+                <input type="text" formControlName="email" class="form-control" id="email">
+                <span class="text-danger small"
+                    *ngIf="!employeeForm.get('email')?.valid && employeeForm.get('email')?.touched">
+                    Invalid email
+                </span>
+            </div>
+            <div class="form-group col-3">
+                <label for="companyEmail">Company Email</label>
+                <input type="text" formControlName="companyEmail" class="form-control" id="companyEmail">
+                <span class="text-danger small"
+                    *ngIf="!employeeForm.get('companyEmail')?.valid && employeeForm.get('companyEmail')?.touched">
+                    Invalid email
+                </span>
+            </div>
+            <div class="form-group col-6">
+                <label for="contactPerson">Contact Person</label>
+                <input type="text" formControlName="contactPerson" class="form-control" id="contactPerson">
+            </div>
+            <div class="form-group col-3">
+                <label for="contactPersonCellphoneNumber">Cellphone No.</label>
+                <input type="text" formControlName="contactPersonCellphoneNumber" class="form-control"
+                    id="contactPersonCellphoneNumber">
+            </div>
+            <div class="form-group col-3">
+                <label for="contactPersonRelationship">Relationship</label>
+                <select class="form-select" (change)="onChangeRelationship($event.target)"
+                    formControlName="contactPersonRelationship">
+                    <option [value]=""></option>
+                    <option [value]="relationship.value" *ngFor="let relationship of relationships">{{ relationship.key
+                        }}</option>
+                </select>
+            </div>
+        </div>
+    </div>
+    <div class="p-3 form-section">
+        <span>Address</span>
+        <div class="form-row" formGroupName="employeeAddress">
+            <div class="form-group col-12">
+                <label for="address1">House No/ Flr, Building Name/ Street *</label>
+                <input type="text" formControlName="address1" class="form-control required" id="address1">
+                <span class="text-danger small"
+                    *ngIf="!employeeForm.get('employeeAddress.address1')?.valid && employeeForm.get('employeeAddress.address1')?.touched">
+                    House No/ Flr, Building Name/ Street is required
+                </span>
+            </div>
+            <div class="form-group col-4">
+                <label for="province">Province *</label>
+                <input type="text" formControlName="province" class="form-control required" id="province">
+                <span class="text-danger small"
+                    *ngIf="!employeeForm.get('employeeAddress.province')?.valid && employeeForm.get('employeeAddress.province')?.touched">
+                    Province is required
+                </span>
+            </div>
+            <div class="form-group col-4">
+                <label for="municipality">Municipality/City *</label>
+                <input type="text" formControlName="municipality" class="form-control required" id="municipality">
+                <span class="text-danger small"
+                    *ngIf="!employeeForm.get('employeeAddress.municipality')?.valid && employeeForm.get('employeeAddress.municipality')?.touched">
+                    Municipality/City is required
+                </span>
+            </div>
+            <div class="form-group col-4">
+                <label for="barangay">Barangay *</label>
+                <input type="text" formControlName="barangay" class="form-control required" id="barangay">
+                <span class="text-danger small"
+                    *ngIf="!employeeForm.get('employeeAddress.barangay')?.valid && employeeForm.get('employeeAddress.barangay')?.touched">
+                    Barangay is required
+                </span>
+            </div>
+        </div>
+    </div>
+    <div class="p-3 text-right">
+        <button type="submit" class="btn btn-primary" [disabled]="!employeeForm.valid"><i class="bi bi-save"></i>
+            Submit</button>
+        <button type="button" class="btn btn-secondary ml-2" (click)="onCancel()"><i class="bi bi-x"></i> Cancel</button>
+
+    </div>
+</form>

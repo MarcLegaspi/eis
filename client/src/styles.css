@@ -1,0 +1,146 @@
+/* You can add global styles to this file, and also import other style files */
+body {
+    color: #707070 !important;
+    background-color: #e9e9e9 !important;
+    font-size: 14px !important;
+}
+
+input, select {
+    color: #707070 !important;
+    font-size: 14px !important;    
+    border: 1px solid rgb(202, 202, 202) !important;
+    border-radius: 0px !important;
+}
+
+input::placeholder {
+    color: #bbb9b9 !important;
+}
+
+.navbar{
+    border-bottom: 5px solid #787878;
+    background-color:rgb(134 167 119);
+}
+
+.navbar .logo {
+    font-size: 2.1rem;
+    color: white;
+    text-decoration: none;
+    font-family: sans-serif;
+}
+
+.navbar input[type='text'] {
+    padding: 5px 10px;
+    border: 1px solid #EEEEEE;
+    border-radius: 2rem;
+}
+
+.sidenav {
+    background-color: #F2F2F2;
+} 
+
+.sidenav .user-info {
+    line-height: 52px;
+}
+
+.sidenav .user-info .avatar {
+    color: white;
+    background-color: #FF9D2B;
+    display: inline-block;
+    width: 52px;
+    font-size: 22px;
+    border-radius: 50%;    
+}
+
+.sidenav .side-link {
+    padding: 7px 10px;
+}
+
+.sidenav .side-link.selected {
+    background-color: #DFDFDF;
+    font-weight: bold;
+    border-radius: 2rem;
+}
+
+.sidenav ul {
+    list-style-type: none;
+}
+
+main .search-box {
+    box-shadow: 0px 5px 5px #d7d7d7;
+    background-color: #f5f5f5;
+}
+
+main .search-box input {
+    font-family: 'bootstrap-icons', Arial;
+    /* padding: 8px 10px; */
+    /* border:1px solid #EEEEEE; */
+}
+
+main .search-box button {
+    font-size: 14px !important;
+    padding: .375rem .75rem;
+    border: 1px solid #cacaca;
+}
+
+.table {    
+    color: #707070 !important;
+}
+
+.table thead {    
+    border-bottom:1px solid #707070 !important;
+}
+
+/* Override Bootstrap class */
+
+.btn-primary {
+    color: #fff;
+    background-color: #86a777 !important;
+    border-color: #86a777 !important;
+    border-color: #f9f9f9;
+}
+
+.btn-primary:hover {
+    color: #fff;
+    background-color: #658059 !important;
+    border-color: #658059 !important;
+}
+
+.btn-secondary {
+    background-color: #787878db !important;
+    border-color: #787878db !important;
+}
+
+.btn-secondary:hover {
+    color: #fff;
+    background-color: #56595d !important;
+    border-color: #56595d !important;
+}
+
+.pagination > li > a
+{
+    background-color: white;
+    color: #707070;
+}
+
+.pagination > li > a:focus,
+.pagination > li > a:hover,
+.pagination > li > span:focus,
+.pagination > li > span:hover
+{
+    color: #707070;
+    background-color: #eee;
+    border-color: #ddd;
+}
+
+.pagination > .active > a
+{
+    color: white;
+    background-color: #707070 !Important;
+    border: solid 1px #707070 !Important;
+}
+
+.pagination > .active > a:hover
+{
+    background-color: #707070 !Important;
+    border: solid 1px #707070;
+}

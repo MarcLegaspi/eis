@@ -2,7 +2,8 @@ namespace Core.Enums
 {
     public enum UserStatusEnum
     {
-        Active = 0,
-        Inactive = 1
+        ForActivation = 0,
+        Active = 1,
+        Inactive = 2
     }
 }

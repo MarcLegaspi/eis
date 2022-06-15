@@ -6,7 +6,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace Infrastructure.Data
 {
-    public class RepositoryBase<TEntity> : IRepository<TEntity> where TEntity : BaseEntity
+    public class RepositoryBase<TEntity> : IRepository<TEntity> where TEntity : class
     {
         private readonly EisContext _context;
         public RepositoryBase(EisContext context)
@@ -26,8 +26,20 @@ namespace Infrastructure.Data
         }
 
         public async Task<TEntity> GetByIdAsync(int id)
-        {            
+        {
             return await _context.Set<TEntity>().FindAsync(id);
+        }
+
+        public async Task<int> CountAsync()
+        {
+            var query = _context.Set<TEntity>().AsQueryable();
+
+            if (_criteria != null)
+            {
+                query = query.Where(_criteria);
+            }
+
+            return await query.CountAsync();
         }
 
         public async Task<TEntity> GetByIdIncludingAsync(int id, params Expression<Func<TEntity, object>>[] includeProperties)
@@ -40,14 +52,25 @@ namespace Infrastructure.Data
                 {
                     query = query.Include(includeProperty);
                 }
-            }
+            }                        
 
-            return await query.FirstOrDefaultAsync(m => m.Id == id);
+            return await query.FirstOrDefaultAsync(m => (int)m.GetType().GetProperty("Id").GetValue(m,null) == id);
+        }
+
+        public async Task<IReadOnlyList<TEntity>> ListAllAsync() {
+            var query = _context.Set<TEntity>().AsQueryable();
+
+            return await query.ToListAsync();
         }
 
         public async Task<IReadOnlyList<TEntity>> ListAllIncludingAsync(params Expression<Func<TEntity, object>>[] includeProperties)
         {
             var query = _context.Set<TEntity>().AsQueryable();
+
+            if (_criteria != null)
+            {
+                query = query.Where(_criteria);
+            }
 
             if (includeProperties != null)
             {
@@ -64,7 +87,13 @@ namespace Infrastructure.Data
         {
             var query = _context.Set<TEntity>().AsQueryable();
 
+            if (_criteria != null)
+            {
+                query = query.Where(_criteria);
+            }
+
             query = query.Skip(pagination.PageSize * (pagination.PageIndex - 1)).Take(pagination.PageSize);
+
 
             if (includeProperties != null)
             {
@@ -85,17 +114,21 @@ namespace Infrastructure.Data
             return entity;
         }
 
-        // protected IQueryable<TEntity> ListAll(Pagination pagination = null)
-        // {
-        //     var query = _context.Set<TEntity>().AsQueryable();
+        protected IQueryable<TEntity> ListAll(Pagination pagination = null)
+        {
+            var query = _context.Set<TEntity>().AsQueryable();
 
-        //     if (pagination != null)
-        //     {
-        //         query = query.Skip(pagination.PageSize * (pagination.PageIndex - 1)).Take(pagination.PageSize);
-        //     }
-        //     return query;
-        // }
+            if (pagination != null)
+            {
+                query = query.Skip(pagination.PageSize * (pagination.PageIndex - 1)).Take(pagination.PageSize);
+            }
+            return query;
+        }
 
-
+        private Expression<Func<TEntity, bool>> _criteria;
+        public void SetFilter(Expression<Func<TEntity, bool>> criteria)
+        {
+            _criteria = criteria;
+        }
     }
 }

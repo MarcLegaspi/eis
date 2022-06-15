@@ -16,7 +16,11 @@ namespace Infrastructure.Data.Config
             builder.Property(m => m.MiddleName).HasMaxLength(30);
             builder.Property(m => m.TIN).HasMaxLength(10);
             builder.Property(m => m.Gsis).HasMaxLength(10);
+            builder.Property(m => m.Pagibig).HasMaxLength(12);
             builder.Property(m => m.PhilhealthNo).HasMaxLength(12);
+
+
+            builder.HasIndex(m => m.EmployeeNumber).IsUnique();
 
             builder.HasOne(m => m.Position).WithMany()
                 .HasForeignKey(m => m.PositionId);
@@ -74,6 +78,48 @@ namespace Infrastructure.Data.Config
 
             builder.HasOne(m => m.Department).WithMany()
                 .HasForeignKey(m => m.DepartmentId);
+        }
+    }
+
+    public class UserConfiguration : IEntityTypeConfiguration<User>
+    {
+        public void Configure(EntityTypeBuilder<User> builder)
+        {
+            builder.ToTable("Users", schema: "user");
+            builder.Property(m => m.Id).IsRequired();
+            builder.Property(m => m.EmployeeId).IsRequired();
+            builder.Property(m => m.PasswordHash).IsRequired();
+            builder.Property(m => m.PasswordSalt).IsRequired();
+
+            builder.HasOne(m => m.Employee).WithMany()
+                .HasForeignKey(m => m.EmployeeId);
+            // builder.HasOne<Employee>(m => m.Employee)
+            //     .WithOne(m => m.User)
+            //     .HasForeignKey<Employee>(m => m.UserId);
+        }
+    }
+
+    public class UserRoleConfiguration : IEntityTypeConfiguration<UserRole>
+    {
+        public void Configure(EntityTypeBuilder<UserRole> builder)
+        {
+            builder.ToTable("UserRoles", schema: "user");
+            builder.Property(m => m.Id).IsRequired();
+            builder.Property(m => m.RoleId).IsRequired();
+            builder.Property(m => m.UserId).IsRequired();
+            
+            builder.HasOne(m => m.Role).WithMany()
+                .HasForeignKey(m => m.RoleId);
+        }
+    }
+
+    
+    public class RoleConfiguration : IEntityTypeConfiguration<Role>
+    {
+        public void Configure(EntityTypeBuilder<Role> builder)
+        {
+            builder.ToTable("Roles", schema: "user");
+            builder.Property(m => m.Name).IsRequired();
         }
     }
 

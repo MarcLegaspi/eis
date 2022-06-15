@@ -1,0 +1,36 @@
+.sidenav {
+    background-color: #f5f5f5;
+    border-right: 1px solid rgb(223 223 223);
+} 
+
+.sidenav .user-info {
+    line-height: 52px;
+}
+
+.sidenav .user-info .avatar {
+    color: white;
+    background-color: #FF9D2B;
+    display: inline-block;
+    width: 52px;
+    font-size: 22px;
+    border-radius: 50%;    
+}
+
+.sidenav .side-link {
+    padding: 7px 15px;
+}
+
+.sidenav .side-link.selected {
+    background-color: #DFDFDF;
+    font-weight: bold;
+    border-radius: 2rem;
+}
+
+.sidenav ul {
+    list-style-type: none;
+}
+
+.sidenav ul a {
+    color: #6c757d;
+    text-decoration: none;
+}

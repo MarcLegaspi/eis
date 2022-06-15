@@ -62,12 +62,19 @@ namespace Infrastructure.Data
                 if (!context.EmployeeAddress.Any())
                 {
                     var employeeAddressData = File.ReadAllText("../Infrastructure/Data/SeedData/json/employeeAddress.json");
-                    var  employeeAddress = JsonSerializer.Deserialize<List<EmployeeAddress>>(employeeAddressData);
+                    var employeeAddress = JsonSerializer.Deserialize<List<EmployeeAddress>>(employeeAddressData);
 
                     foreach (var item in employeeAddress)
                     {
                         context.EmployeeAddress.Add(item);
                     }
+                    await context.SaveChangesAsync();
+                }
+
+                if (!context.Roles.Any())
+                {
+                    context.Roles.Add(new Role(){ Name = "Employee"});
+                    context.Roles.Add(new Role(){ Name = "Administrator"});
                     await context.SaveChangesAsync();
                 }
             }

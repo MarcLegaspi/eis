@@ -1,3 +1,5 @@
+using Core.Interface;
+
 namespace Core.Entities
 {
     public class Department

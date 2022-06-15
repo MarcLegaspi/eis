@@ -1,0 +1,39 @@
+.form-group {
+    margin-bottom: .3rem;
+}
+
+.form-section {
+    position: relative;
+    border-top: 1px solid rgb(223 223 223);
+}
+
+.form-section>span {
+    position: absolute;
+    top: -20px;
+    left: 0px;
+    padding: 5px 10px 5px 0px;
+    display: block;
+    font-size: large;
+    font-weight: bold;
+    background-color: white;
+}
+
+#employeeNumber {       
+    border: none !important;
+    background-color: transparent;
+    font-size: 42px !important;
+    outline: none;
+    width: 150px;
+}
+
+#employeeNumber:active,#employeeNumber:focus,#employeeNumber:focus-within,#employeeNumber::selection {    
+    border-bottom: 2px solid #787878 !important;
+}
+
+form input.required,form select.required {
+    background-color: #edf6ed;
+} 
+
+input.ng-invalid.ng-touched {
+    border: 1px #a3000082 solid !important
+  }

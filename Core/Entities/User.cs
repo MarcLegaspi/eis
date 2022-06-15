@@ -14,5 +14,6 @@ namespace Core.Entities
         public byte[] PasswordHash { get; set; }
         public byte[] PasswordSalt { get; set; }
         public UserStatusEnum UserStatus { get; set; }
+        public List<UserRole> UserRoles { get; set; }
     }
 }

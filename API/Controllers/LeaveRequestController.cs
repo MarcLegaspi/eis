@@ -9,21 +9,27 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace API.Controllers
 {
-    public class LeaveRequestController: BaseController
+    public class LeaveRequestsController: BaseController
     {
         private readonly ILeaveRequestRepository _leaveRequestRepository;
         private readonly IMapper _mapper;
+        private readonly IUserRepository _userRepository;
 
-        public LeaveRequestController(ILeaveRequestRepository leaveRequestRepository, IMapper mapper)
+        public LeaveRequestsController(
+            ILeaveRequestRepository leaveRequestRepository, 
+            IMapper mapper, 
+            IUserRepository userRepository): base(userRepository)
         {
+            _userRepository = userRepository;
             _mapper = mapper;
             _leaveRequestRepository = leaveRequestRepository;
             
         }
+
         [HttpGet]
-        public async Task<ActionResult<IReadOnlyList<LeaveRequestDto>>> GetLeaveRequests() 
+        public async Task<ActionResult<IReadOnlyList<LeaveRequestDto>>> GetLeaveRequests([FromQuery] Pagination pagination) 
         {
-            var leaveRequests = await _leaveRequestRepository.GetLeaveRequests();
+            var leaveRequests = await _leaveRequestRepository.GetLeaveRequests(pagination);
 
             var leaveRequestsMap = _mapper.Map<IReadOnlyList<LeaveRequestDto>>(leaveRequests);
 
@@ -49,7 +55,7 @@ namespace API.Controllers
         {
             var leaveRequest = _mapper.Map<LeaveRequest>(model);
 
-            leaveRequest.CreatedByUserId = 1;
+            leaveRequest.CreatedByUserId = CurrentUser().Id;
             leaveRequest.LeaveRequestStatus = LeaveRequestStatusEnum.New;
             
             var leaveRequestDb = await _leaveRequestRepository.CreateAsync(leaveRequest);
